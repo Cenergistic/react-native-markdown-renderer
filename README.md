@@ -1,3 +1,7 @@
+## This is just like the original one but changed the packages.json file to make it to work with react-native@^0.64.3
+
+***
+
 # React Native Markdown Renderer [![npm version](https://badge.fury.io/js/react-native-markdown-renderer.svg)](https://badge.fury.io/js/react-native-markdown-renderer) [![Known Vulnerabilities](https://snyk.io/test/github/mientjan/react-native-markdown-renderer/badge.svg)](https://snyk.io/test/github/mientjan/react-native-markdown-renderer)
 
 Is a 100% compatible CommonMark renderer, a react-native markdown renderer done right. This is __not__
