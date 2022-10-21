@@ -92,6 +92,10 @@ export default class Markdown extends Component {
   renderer = null;
   markdownParser = null;
 
+  static getDerivedStateFromProps(nextProps, prevState){
+    return nextProps;
+  }
+
   /**
    * Only when the copy changes will the markdown render again.
    * @param nextProps
@@ -189,18 +193,17 @@ export default class Markdown extends Component {
 
   /**
    *
-   * @param nextProps
    */
-  componentWillReceiveProps(nextProps) {
-    this.updateSettings(nextProps);
+  componentDidUpdate() {
+    this.updateSettings(this.state);
   }
 
   /**
    *
-   * @param prevProps
+   * @param nextProps
    */
-  // componentDidUpdate(prevProps) {
-  //   this.updateSettings(this.props);
+  // componentWillReceiveProps(nextProps) {
+  //   this.updateSettings(nextProps);
   // }
 
   /**
