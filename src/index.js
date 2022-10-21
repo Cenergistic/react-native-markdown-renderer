@@ -92,10 +92,10 @@ export default class Markdown extends Component {
   renderer = null;
   markdownParser = null;
 
-  state: {};
+  state = {};
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    console.log('getDerivedStateFromProps', nextProps);
+    console.log('getDerivedStateFromProps', Object.keys(nextProps));
     return nextProps;
   }
 
@@ -198,7 +198,7 @@ export default class Markdown extends Component {
    *
    */
   componentDidUpdate() {
-    console.log('componentDidUpdate', this.state);
+    console.log('componentDidUpdate', Object.keys(this.state));
     this.updateSettings(this.state);
   }
 
