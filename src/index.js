@@ -189,11 +189,19 @@ export default class Markdown extends Component {
 
   /**
    *
+   * @param nextProps
+   */
+  componentWillReceiveProps(nextProps) {
+    this.updateSettings(nextProps);
+  }
+
+  /**
+   *
    * @param prevProps
    */
-  componentDidUpdate(prevProps) {
-    this.updateSettings(this.props);
-  }
+  // componentDidUpdate(prevProps) {
+  //   this.updateSettings(this.props);
+  // }
 
   /**
    *
