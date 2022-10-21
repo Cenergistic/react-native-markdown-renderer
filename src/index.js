@@ -92,13 +92,6 @@ export default class Markdown extends Component {
   renderer = null;
   markdownParser = null;
 
-  state = {};
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    console.log('getDerivedStateFromProps', Object.keys(nextProps));
-    return nextProps;
-  }
-
   /**
    * Only when the copy changes will the markdown render again.
    * @param nextProps
@@ -108,9 +101,11 @@ export default class Markdown extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     const copy = this.getCopyFromChildren(nextProps.children);
 
+    let willUpdate = false;
+
     if (copy !== this.copy) {
       this.copy = copy;
-      return true;
+      willUpdate = true;
     }
 
     if (
@@ -120,10 +115,14 @@ export default class Markdown extends Component {
       nextProps.rules !== this.props.rules ||
       nextProps.markdownit !== this.props.markdownit
     ) {
-      return true;
+      willUpdate = true;
     }
 
-    return false;
+    if (willUpdate) {
+      this.updateSettings(nextProps);
+    }
+
+    return willUpdate;
   }
 
   /**
@@ -193,22 +192,6 @@ export default class Markdown extends Component {
   componentDidMount() {
     this.updateSettings(this.props);
   }
-
-  /**
-   *
-   */
-  componentDidUpdate() {
-    console.log('componentDidUpdate', Object.keys(this.state));
-    this.updateSettings(this.state);
-  }
-
-  /**
-   *
-   * @param nextProps
-   */
-  // componentWillReceiveProps(nextProps) {
-  //   this.updateSettings(nextProps);
-  // }
 
   /**
    *
