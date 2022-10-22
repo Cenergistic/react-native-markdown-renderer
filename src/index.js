@@ -209,7 +209,7 @@ export default class Markdown extends Component {
    */
   render() {
     const copy = (this.copy = this.getCopyFromChildren());
-    if (!this.renderer) return null;
+    if (!this.renderer) return <View/>;
     return parser(copy, this.renderer.render, this.markdownParser);
   }
 }
