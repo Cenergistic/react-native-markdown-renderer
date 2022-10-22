@@ -191,6 +191,7 @@ export default class Markdown extends Component {
    */
   componentDidMount() {
     this.updateSettings(this.props);
+    this.forceUpdate();
   }
 
   /**
@@ -208,6 +209,7 @@ export default class Markdown extends Component {
    */
   render() {
     const copy = (this.copy = this.getCopyFromChildren());
+    if (!this.renderer) return null;
     return parser(copy, this.renderer.render, this.markdownParser);
   }
 }
