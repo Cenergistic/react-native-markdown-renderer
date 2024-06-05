@@ -1,4 +1,4 @@
-## This is just like the original one but changed the packages.json file to make it to work with react-native@^0.64.3
+_A fork of a fork of an old package we rely on that we needed to slightly modify to support React 18 and React Native 0.72_
 
 ***
 
